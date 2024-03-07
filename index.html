@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <!-- coding by helpme_coder -->
     <meta charset="UTF-8">
@@ -8,23 +7,43 @@
     <title>Valentines day card | @helpme_coder</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-
 </head>
-
 <body>
     <div class="container">
         <div class="valentines">
             <div class="envelope"></div>
             <div class="front"></div>
             <div class="card">
-                <div class="text">Will You Be</br> My Valentine</br>  Eli?</div>
+                <div class="text">Will You Be</br> My Valentine</br> Eli?</div>
                 <div class="heart"></div>
             </div>
         </div>
     </div>
     <div class="shadow"></div>
-    </div>
-    <script src="script.js"></script>
-</body>
+    <script>
+    $(document).ready(function() {
+        // List of messages to cycle through
+        var messages = [
+            "Will You Be My Valentine Eli?",
+            "You make my heart skip a beat!",
+            "Together is my favorite place to be.",
+            "Every moment with you is a treasure.",
+            // Add more messages as needed
+        ];
 
+        // Initial message index
+        var currentIndex = 0;
+
+        // Function to change the message upon clicking the card
+        $('.card').click(function() {
+            // Update the current index and cycle through messages
+            currentIndex = (currentIndex + 1) % messages.length;
+            // Replace line breaks with <br> tags for HTML
+            var newMessageHtml = messages[currentIndex].replace(/\n/g, '<br>');
+            // Update the card's text with the new message
+            $('.text').html(newMessageHtml);
+        });
+    });
+    </script>
+</body>
 </html>
